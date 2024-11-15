@@ -8,36 +8,18 @@
 # Print Items and their Information (Name, Stock, Price, Etc.)
 # Business Logic
 
-import os
-import shutil
-
-# Title Ascii Art Rendering
-os.system('cls' if os.name == 'nt' else 'clear')
-
-termDim = shutil.get_terminal_size()
-
-asciiArt = open("./vendtopia.txt", "r")
-
-print("="*termDim.columns)
-print("\n"*2)
-
-for line in asciiArt.readlines():
-  print(" "*((termDim.columns-len(line))//2), line, end="")
-
-print("\n"*2)
-print("="*termDim.columns)
-print("\n"*2)
+from handler import handler
+from menu import menu
 
 # Import The Drinks Data
-itemsRawData = open("./drinks.csv", "r")
-itemsData = {}
+itemsRawData = open("./items.csv", "r")
+itemsData = []
 
 for line in itemsRawData.readlines():
   itemsDataList = line.strip().split(",")
-  itemsData[itemsDataList[0].replace(" ","").lower()] = itemsDataList
+  itemsData.append(itemsDataList)
 
-# itemsTable = [
-#   "+"+("-"*25+"+")*5
-# ]
+itemsRawData.close()
 
-# print(str.join("\n",itemsTable))
+menu(itemsData)
+handler(itemsData)
