@@ -1,3 +1,7 @@
+# VendingMachineMenu
+# Luaran menu vending machine.
+
+# Algoritma
 import shutil
 
 from util import cleanConsole
@@ -40,7 +44,6 @@ def menu(items):
           )
       itemsTable.append("|"+"|".join(tableLines)+"|")
     itemsTable += [horizontalPad, horizontalLine]
-
 
   for line in itemsTable:
     print(" "*((termDim.columns-len(line))//2), line)

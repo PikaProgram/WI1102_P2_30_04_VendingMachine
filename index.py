@@ -1,13 +1,6 @@
 # VendingMachine
 
-# Kamus
-#
-
 # Algoritma
-
-# Print Items and their Information (Name, Stock, Price, Etc.)
-# Business Logic
-
 from handler import handler
 from menu import menu
 
