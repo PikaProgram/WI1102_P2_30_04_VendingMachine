@@ -50,8 +50,10 @@ def menu(items):
     for line in items_table:
         print(" " * ((term_dim.columns - len(line)) // 2), line)
 
-    print("")
-    
-    print(str(get_reccomendation(datetime.datetime.now().hour)[1]).center(term_dim.columns))    
+
+    reccomendation = get_reccomendation(datetime.datetime.now().hour)
+    if reccomendation is not None:
+        print("")
+        print(str(get_reccomendation(datetime.datetime.now().hour)[1]).center(term_dim.columns))    
 
     print("")
